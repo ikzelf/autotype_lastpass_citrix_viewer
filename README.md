@@ -14,6 +14,8 @@ In the System Preferences/Security & Privacy allow the automator workflow to con
 
 also for the Citrix Viewer application, that needs to be controlled.
 
+Bartender is just a nice tool I use to keep my toplevel menu a bit organized. I can recommend it but it is not needed for this workflow.
+
 
 open your citrix session and whenever you need a password that is stored in your lastpass vault hit your keyboard shortcut.
 1) a list of passwords found for your screen name are found
