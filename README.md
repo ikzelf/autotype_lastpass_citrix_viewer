@@ -27,3 +27,6 @@ open your citrix session and whenever you need a password that is stored in your
 
 
 This is my first applescript/ automator workflow. I am quite sure improvements are possible so if you see any: please feel free to share them, I am very open for pull requests and suggestions.
+
+
+One thing that I would like is to change ```activate application "Citrix Viewer"``` to something with a variable instread of the hardcoded "Citrix Viewer". That would make this script a bit more usable for other apps.
