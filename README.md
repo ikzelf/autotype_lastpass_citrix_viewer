@@ -20,3 +20,6 @@ open your citrix session and whenever you need a password that is stored in your
 4) the choosen password is shown is an editable dialog so you can check and when needed edit it
 5) the password from the editable dialog is typed in the citrix session - without an enter
 6) you enter to use the password
+
+
+This is my first applescript/ automator workflow. I am quite sure improvements are possible so if you see any: please feel free to share them, I am very open for pull requests and suggestions.
