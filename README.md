@@ -8,7 +8,7 @@ from the terminal
 
 Install lastpass-cli using: brew install lastpass-cli
 
-login to your lastpass account using: lpass --trust connect your_lastpass_account
+login to your lastpass account using: lpass login --trust connect_your_lastpass_account
 
 In the System Preferences/Security & Privacy allow the automator workflow to control your computer:<img width="662" alt="Screenshot 2022-01-13 at 13 24 45" src="https://user-images.githubusercontent.com/496774/149329858-6aa0878a-7336-482e-b6fe-094940bd2df5.png">
 
