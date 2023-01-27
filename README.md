@@ -32,3 +32,5 @@ This is my first applescript/ automator workflow. I am quite sure improvements a
 
 
 One thing that I would like is to change ```activate application "Citrix Viewer"``` to something with a variable instread of the hardcoded "Citrix Viewer". That would make this script a bit more usable for other apps.
+
+Adjusted because I switched to M2 from intel. brew now installs in /opt/homebrew instead of /usr/local/bin. Time to source the .bash_profile instead of hardcoding the paths to lpass.

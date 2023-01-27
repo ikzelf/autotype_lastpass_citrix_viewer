@@ -10,6 +10,18 @@
 # depends on lpass that can/should be installed using brew install lastpass-cli
 # https://github.com/lastpass/lastpass-cli
 # first run lpass connect --trus your_lastpass_account from the terminal
+# (C) Ronald Rood - 2022, 2023
+# uses ~/.bash_profile t. set PATH
+
+on FileExists(theFile) -- (String) as Boolean
+	tell application "System Events"
+		if exists file theFile then
+			return true
+		else
+			return false
+		end if
+	end tell
+end FileExists
 
 tell application "System Events"
 	set frontAppProcess to first application process whose frontmost is true
@@ -25,12 +37,14 @@ tell application "System Events"
 	
 	
 	try
-		set debugaction to "check status"
-		set connected_name to do shell script "/usr/local/bin/lpass status"
+		set debugaction to "check status: first run 
+lpass login --trust your_lastpass_account
+... from the terminal"
+		set connected_name to do shell script ". ~/.bash_profile;lpass status"
 		
 		set debugaction to "list groep"
 		# get the items from the group and strip out the groupname from the list and delete the header line
-		set lijstje to (do shell script "/usr/local/bin/lpass ls '" & windowTitle & "'|sed 's!" & windowTitle & "!!g'| sed 1d")
+		set lijstje to (do shell script ". ~/.bash_profile;lpass ls '" & windowTitle & "'|sed 's!" & windowTitle & "!!g'| sed 1d")
 		# the sed line above asumes there won't be a "!" in the windowTitle
 		
 		display dialog connected_name & " " & windowTitle & "
@@ -49,10 +63,13 @@ tell application "System Events"
 		set gekozen_ID to do shell script "awk '{print substr($NF, 1, length($NF)-1)}'<<<" & quoted form of (item 1 of de_keuze)
 		
 		set debugaction to "get pwd van ID: " & gekozen_ID
-		set pwd to do shell script "/usr/local/bin/lpass show " & gekozen_ID & " --password"
+		set pwd to do shell script ". ~/.bash_profile;lpass show " & gekozen_ID & " --password"
 		
-		display dialog "pwd to type:" default answer pwd
-		set texttosay to the text returned of the result
+		# eventually preview and edit before typing instead of directly set texttosay to pwd:
+		# display dialog "pwd to type:" default answer pwd
+		# set texttosay to the text returned of the result
+		set texttosay to pwd
+		
 		activate application "Citrix Viewer"
 		try
 			keystroke texttosay
